@@ -31,13 +31,25 @@ function initNavigation() {
 }
 
 function initKeyboardControls() {
+    let keyDebounce = false;
+
     document.addEventListener('keydown', (e) => {
+        // Skip if already processing a key
+        if (keyDebounce && (e.key.includes('Arrow') || e.key === ' ')) {
+            e.preventDefault();
+            return;
+        }
+
         if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
             e.preventDefault();
+            keyDebounce = true;
             nextSlide();
+            setTimeout(() => { keyDebounce = false; }, 300);
         } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
             e.preventDefault();
+            keyDebounce = true;
             prevSlide();
+            setTimeout(() => { keyDebounce = false; }, 300);
         } else if (e.key === 'Home') {
             e.preventDefault();
             goToSlide(1);
@@ -56,13 +68,18 @@ function initKeyboardControls() {
 function initTouchControls() {
     let touchStartY = 0;
     let touchStartX = 0;
+    let isSwiping = false;
+    const swipeThreshold = 80; // Increased threshold
 
     document.addEventListener('touchstart', (e) => {
+        if (isSwiping) return;
         touchStartY = e.touches[0].clientY;
         touchStartX = e.touches[0].clientX;
     });
 
     document.addEventListener('touchend', (e) => {
+        if (isSwiping) return;
+
         const touchEndY = e.changedTouches[0].clientY;
         const touchEndX = e.changedTouches[0].clientX;
         const diffY = touchStartY - touchEndY;
@@ -70,22 +87,30 @@ function initTouchControls() {
 
         // Vertical swipe
         if (Math.abs(diffY) > Math.abs(diffX)) {
-            if (Math.abs(diffY) > 50) {
+            if (Math.abs(diffY) > swipeThreshold) {
+                isSwiping = true;
                 if (diffY > 0) {
                     nextSlide();
                 } else {
                     prevSlide();
                 }
+                setTimeout(() => {
+                    isSwiping = false;
+                }, 800);
             }
         }
         // Horizontal swipe
         else {
-            if (Math.abs(diffX) > 50) {
+            if (Math.abs(diffX) > swipeThreshold) {
+                isSwiping = true;
                 if (diffX > 0) {
                     nextSlide();
                 } else {
                     prevSlide();
                 }
+                setTimeout(() => {
+                    isSwiping = false;
+                }, 800);
             }
         }
     });
@@ -93,21 +118,29 @@ function initTouchControls() {
 
 function initWheelControl() {
     let isScrolling = false;
+    let scrollThreshold = 50; // Minimum scroll amount to trigger
 
     document.addEventListener('wheel', (e) => {
+        e.preventDefault();
+
         if (isScrolling) return;
 
+        // Check if scroll is significant enough
+        if (Math.abs(e.deltaY) < scrollThreshold) return;
+
         isScrolling = true;
+
+        // Longer debounce time to prevent double-scrolling
         setTimeout(() => {
             isScrolling = false;
-        }, 800);
+        }, 1200);
 
         if (e.deltaY > 0) {
             nextSlide();
         } else {
             prevSlide();
         }
-    }, { passive: true });
+    }, { passive: false });
 }
 
 function showSlide(n) {
