@@ -732,6 +732,58 @@ body {
 .roadmap-item p {
     font-size: 0.95rem;
     line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.activity-detail,
+.collab-detail,
+.vacation-detail {
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.activity-detail:last-child,
+.collab-detail:last-child,
+.vacation-detail:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.activity-detail p,
+.collab-detail p,
+.vacation-detail p {
+    margin-bottom: 0.3rem;
+}
+
+.sub {
+    font-size: 0.85rem !important;
+    opacity: 0.7;
+    line-height: 1.4;
+}
+
+.mission-info {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.cardnews-note {
+    font-size: 0.8rem;
+    font-style: italic;
+    opacity: 0.6;
+    margin-top: 0.5rem;
+}
+
+.timeline-note {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 2px dashed rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.timeline-note p {
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
 }
 
 /* Slide 6: Comparison */
