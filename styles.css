@@ -212,17 +212,53 @@ body {
     justify-content: center;
 }
 
-.rotating-text {
+/* Image Placeholders */
+.image-placeholder {
+    background: linear-gradient(135deg, rgba(255, 204, 0, 0.1), rgba(255, 107, 0, 0.1));
+    border: 3px dashed rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: var(--font-display);
-    font-size: 12rem;
-    font-weight: 900;
-    opacity: 0.05;
-    animation: rotate 20s linear infinite;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
 }
 
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+.image-placeholder span {
+    line-height: 1.4;
+}
+
+.image-placeholder.small {
+    height: 120px;
+    margin: 1rem 0;
+    font-size: 1rem;
+}
+
+.image-placeholder.vertical {
+    height: 100%;
+    width: 100%;
+}
+
+.image-placeholder.fullscreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 3rem;
+}
+
+/* Dark slide placeholders */
+.slide.dark .image-placeholder {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.3);
 }
 
 /* Slide 2: Last Year */
@@ -261,6 +297,11 @@ body {
     margin-bottom: 0.8rem;
     font-size: 1.1rem;
     opacity: 0.8;
+}
+
+.clean-list.compact li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
 }
 
 .clean-list li::before {
@@ -341,11 +382,14 @@ body {
 .split-view {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3rem;
+    max-height: calc(100vh - 12rem);
+    overflow: hidden;
 }
 
 .track-column {
-    padding: 2rem;
+    padding: 1.5rem;
+    overflow-y: auto;
 }
 
 .track-column.academic {
@@ -390,20 +434,20 @@ body {
 }
 
 .list-item {
-    padding: 1rem 0;
+    padding: 0.8rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 0.2rem;
 }
 
 .list-item strong {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
 }
 
 .list-item span {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     opacity: 0.6;
 }
 
@@ -428,10 +472,11 @@ body {
 }
 
 .project-mini {
-    padding: 1.2rem;
+    padding: 1rem;
     background: rgba(255, 255, 255, 0.05);
     border-left: 3px solid var(--accent-orange);
     font-weight: 600;
+    font-size: 0.95rem;
 }
 
 .custom-note {
@@ -442,89 +487,64 @@ body {
 }
 
 /* Slide 5: Roadmap */
-.roadmap-layout {
+.roadmap-compact {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
+    height: 100%;
 }
 
-.roadmap-section {
-    padding: 2rem;
+.roadmap-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.roadmap-right {
+    display: flex;
+    align-items: stretch;
+}
+
+.roadmap-item {
+    padding: 1.5rem;
     border: 2px solid var(--black);
+    flex: 1;
 }
 
-.roadmap-section.highlight {
+.roadmap-item.highlight {
     background: var(--accent-dim);
     border-color: var(--accent);
 }
 
-.roadmap-section h4 {
+.roadmap-item h4 {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.8rem;
     text-transform: uppercase;
 }
 
-.tag-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-.tag {
-    padding: 0.8rem 1rem;
-    background: var(--black);
-    color: var(--white);
-    font-weight: 600;
-    text-align: center;
-}
-
-.bingo-preview {
-    margin-top: 1rem;
-}
-
-.bingo-mini {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.bingo-mini span {
-    padding: 0.8rem 0.5rem;
-    background: var(--white);
-    border: 1px solid var(--black);
-    font-size: 0.75rem;
-    text-align: center;
-    font-weight: 600;
-}
-
-.mini-desc {
-    text-align: center;
-    font-weight: 600;
-    opacity: 0.7;
-}
-
-.roadmap-section p {
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
+.roadmap-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 /* Slide 6: Comparison */
 .comparison-grid {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    max-height: calc(100vh - 15rem);
+    overflow-y: auto;
 }
 
 .comp-row {
     display: grid;
-    grid-template-columns: 150px 1fr 1fr;
-    gap: 2rem;
+    grid-template-columns: 120px 1fr 1fr;
+    gap: 1.5rem;
     align-items: center;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -557,11 +577,11 @@ body {
 .benefits-layout {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .benefit {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1rem;
     border: 2px solid var(--black);
     text-align: center;
     transition: all 0.3s;
@@ -579,14 +599,14 @@ body {
 
 .benefit h4 {
     font-family: var(--font-display);
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 800;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
     text-transform: uppercase;
 }
 
 .benefit p {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     opacity: 0.8;
 }
 
@@ -667,13 +687,33 @@ body {
 }
 
 /* Slide 9: Closing */
+.closing-slide {
+    position: relative;
+}
+
+.closing-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide-content.overlay {
+    position: relative;
+    z-index: 2;
+}
+
 .closing-statement {
     max-width: 900px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border: 5px solid var(--black);
 }
 
 .closing-line {
     font-family: var(--font-display);
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     font-weight: 900;
     line-height: 1.1;
     text-transform: uppercase;
@@ -685,17 +725,17 @@ body {
 }
 
 .closing-quote {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-style: italic;
     opacity: 0.7;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
 }
 
 .closing-year {
     font-family: var(--font-display);
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 800;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 /* Responsive */
