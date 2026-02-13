@@ -691,23 +691,52 @@ body {
     color: var(--accent-orange);
 }
 
-/* Slide 5: Roadmap */
-.roadmap-compact {
+/* Slide 7: 동아리 내부 활동 */
+.internal-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.3fr 1fr;
     gap: 3rem;
     height: 100%;
 }
 
-.roadmap-left {
+.internal-left {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
-.roadmap-right {
+.internal-right {
     display: flex;
     align-items: stretch;
+}
+
+/* Slide 8: 연합 & 특별 프로그램 */
+.external-layout {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 3rem;
+    height: 100%;
+}
+
+.external-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.external-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.timeline-note.large {
+    padding: 2rem;
+    flex: 1;
+}
+
+.vertical-small {
+    height: 200px;
 }
 
 .roadmap-item {
