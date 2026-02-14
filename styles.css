@@ -327,6 +327,10 @@ body {
     padding-top: 1.5rem;
 }
 
+.slide.dark .conference-process {
+    border-top-color: rgba(255, 255, 255, 0.3);
+}
+
 .conference-process h4 {
     font-family: var(--font-display);
     font-size: 1.2rem;
@@ -428,6 +432,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    height: 100%;
 }
 
 .android-intro {
@@ -745,6 +750,14 @@ body {
     flex: 1;
 }
 
+.slide.dark .roadmap-item {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.slide.dark .roadmap-item.highlight {
+    border-color: var(--accent);
+}
+
 .roadmap-item.highlight {
     background: var(--accent-dim);
     border-color: var(--accent);
@@ -770,6 +783,12 @@ body {
     margin-bottom: 1rem;
     padding-bottom: 0.8rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.slide.dark .activity-detail,
+.slide.dark .collab-detail,
+.slide.dark .vacation-detail {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
 .activity-detail:last-child,
@@ -810,6 +829,10 @@ body {
     text-align: center;
 }
 
+.slide.dark .timeline-note {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
 .timeline-note p {
     margin-bottom: 0.3rem;
     font-size: 0.95rem;
@@ -831,7 +854,11 @@ body {
     gap: 1.5rem;
     align-items: center;
     padding: 1rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.slide.dark .comp-row {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
 .comp-row .label {
@@ -873,6 +900,15 @@ body {
     transition: all 0.3s;
 }
 
+.slide.dark .benefit {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.slide.dark .benefit:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
 .benefit:hover {
     background: var(--black);
     color: var(--white);
@@ -902,11 +938,17 @@ body {
     opacity: 1;
 }
 
+.benefit .sub-note {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-top: 0.3rem;
+}
+
 /* Slide 8: Join */
 /* Slide 11: Join - Redesigned */
 .join-header {
     position: relative;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 .join-title {
@@ -1207,7 +1249,12 @@ body {
     .three-col,
     .split-view,
     .roadmap-layout,
-    .benefits-layout {
+    .benefits-layout,
+    .conference-layout,
+    .internal-layout,
+    .external-layout,
+    .research-grid,
+    .android-projects {
         grid-template-columns: 1fr;
     }
 
