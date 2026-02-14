@@ -374,6 +374,13 @@ body {
     display: flex;
 }
 
+.conference-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 3px solid var(--black);
+}
+
 /* Slide 3: 학술연구부 */
 .research-grid {
     display: grid;
@@ -495,8 +502,11 @@ body {
 }
 
 .android-img {
+    width: 100%;
     height: 150px;
     margin: 1rem 0;
+    object-fit: cover;
+    border: 2px solid var(--black);
 }
 
 .android-project > p {
@@ -728,6 +738,13 @@ body {
     align-items: stretch;
 }
 
+.activity-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 3px solid var(--black);
+}
+
 /* Slide 8: 연합 & 특별 프로그램 */
 .external-layout {
     display: grid;
@@ -755,6 +772,13 @@ body {
 
 .vertical-small {
     height: 200px;
+}
+
+.collab-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .roadmap-item {
