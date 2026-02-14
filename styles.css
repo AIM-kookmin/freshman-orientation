@@ -224,6 +224,15 @@ body {
     justify-content: center;
 }
 
+.hero-logo {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+    animation: fadeInUp 0.8s ease-out 0.3s backwards;
+}
+
 /* Image Placeholders */
 .image-placeholder {
     background: linear-gradient(135deg, rgba(255, 204, 0, 0.1), rgba(255, 107, 0, 0.1));
@@ -380,6 +389,19 @@ body {
     object-position: center;
     background: var(--gray-100);
     border: 3px solid var(--black);
+}
+
+.academic-posters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    height: 100%;
+}
+
+.academic-posters .conference-image {
+    width: 100%;
+    height: 100%;
 }
 
 /* Slide 3: 학술연구부 */
@@ -750,6 +772,19 @@ body {
     background: var(--gray-100);
     border: 3px solid var(--black);
     display: block;
+}
+
+.meetup-posters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    height: 100%;
+}
+
+.meetup-posters .activity-image {
+    width: 100%;
+    height: 100%;
 }
 
 /* Slide 8: 연합 & 특별 프로그램 */
