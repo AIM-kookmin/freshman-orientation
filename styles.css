@@ -226,11 +226,26 @@ body {
 
 .hero-logo {
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
-    animation: fadeInUp 0.8s ease-out 0.3s backwards;
+    animation: fadeInUp 0.8s ease-out 0.3s backwards, float 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.hero-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 /* Image Placeholders */
@@ -392,16 +407,40 @@ body {
 }
 
 .academic-posters {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    position: relative;
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .academic-posters .conference-image {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    width: 85%;
+    height: 90%;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.academic-posters .conference-image:first-child {
+    transform: translateX(-8%) rotate(-3deg) scale(0.92);
+    z-index: 1;
+    opacity: 0.85;
+    filter: brightness(0.95);
+}
+
+.academic-posters .conference-image:last-child {
+    transform: translateX(8%) rotate(2deg);
+    z-index: 2;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.academic-posters:hover .conference-image:first-child {
+    transform: translateX(-12%) rotate(-4deg) scale(0.9);
+}
+
+.academic-posters:hover .conference-image:last-child {
+    transform: translateX(6%) rotate(1deg) scale(1.02);
 }
 
 /* Slide 3: 학술연구부 */
@@ -775,16 +814,50 @@ body {
 }
 
 .meetup-posters {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    position: relative;
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .meetup-posters .activity-image {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    transition: all 0.4s ease;
+}
+
+.meetup-posters .activity-image:first-child {
+    /* 11월 - 배경 */
+    width: 75%;
+    height: 85%;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) scale(0.88);
+    opacity: 0.5;
+    filter: grayscale(0.3) brightness(0.85);
+    z-index: 1;
+}
+
+.meetup-posters .activity-image:last-child {
+    /* 12월 - 메인 */
+    width: 80%;
+    height: 95%;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    box-shadow: -10px 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.meetup-posters:hover .activity-image:first-child {
+    opacity: 0.7;
+    transform: translateY(-50%) scale(0.9) translateX(-5%);
+}
+
+.meetup-posters:hover .activity-image:last-child {
+    transform: translateY(-50%) scale(1.03);
+    box-shadow: -15px 25px 70px rgba(0, 0, 0, 0.4);
 }
 
 /* Slide 8: 연합 & 특별 프로그램 */
