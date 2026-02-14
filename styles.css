@@ -408,32 +408,31 @@ body {
 
 .academic-posters .conference-image {
     position: absolute;
-    width: 85%;
-    height: 90%;
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 90%;
+    height: 92%;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
 
 .academic-posters .conference-image:first-child {
-    transform: translateX(-8%) rotate(-3deg) scale(0.92);
-    z-index: 1;
-    opacity: 0.85;
-    filter: brightness(0.95);
+    opacity: 1;
+    z-index: 2;
+    transform: translateY(0);
 }
 
 .academic-posters .conference-image:last-child {
-    transform: translateX(8%) rotate(2deg);
-    z-index: 2;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    z-index: 1;
+    transform: translateY(0);
 }
 
 .academic-posters:hover .conference-image:first-child {
-    transform: translateX(-9%) rotate(-3.5deg) scale(0.91);
-    opacity: 0.9;
+    opacity: 0;
+    z-index: 1;
 }
 
 .academic-posters:hover .conference-image:last-child {
-    transform: translateX(8%) rotate(1.5deg) translateY(-3px);
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+    opacity: 1;
+    z-index: 2;
 }
 
 /* Slide 3: 학술연구부 */
@@ -817,40 +816,31 @@ body {
 
 .meetup-posters .activity-image {
     position: absolute;
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 90%;
+    height: 95%;
+    transition: opacity 0.6s ease-in-out;
 }
 
 .meetup-posters .activity-image:first-child {
-    /* 11월 - 배경 */
-    width: 75%;
-    height: 85%;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%) scale(0.88);
-    opacity: 0.5;
-    filter: grayscale(0.3) brightness(0.85);
+    /* 11월 */
+    opacity: 0;
     z-index: 1;
 }
 
 .meetup-posters .activity-image:last-child {
-    /* 12월 - 메인 */
-    width: 80%;
-    height: 95%;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    /* 12월 - 기본 표시 */
+    opacity: 1;
     z-index: 2;
-    box-shadow: -10px 20px 60px rgba(0, 0, 0, 0.35);
 }
 
 .meetup-posters:hover .activity-image:first-child {
-    opacity: 0.65;
-    filter: grayscale(0.2) brightness(0.9);
+    opacity: 1;
+    z-index: 2;
 }
 
 .meetup-posters:hover .activity-image:last-child {
-    transform: translateY(-50%) translateY(-4px);
-    box-shadow: -12px 24px 65px rgba(0, 0, 0, 0.38);
+    opacity: 0;
+    z-index: 1;
 }
 
 /* Slide 8: 연합 & 특별 프로그램 */
