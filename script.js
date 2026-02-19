@@ -1,6 +1,6 @@
 // Slide Management
 let currentSlide = 1;
-const totalSlides = 12;
+const totalSlides = 13;
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
