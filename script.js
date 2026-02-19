@@ -263,6 +263,17 @@ document.querySelectorAll('.slide').forEach(slide => {
     observer.observe(slide, { attributes: true });
 });
 
+// Email copy to clipboard
+function copyEmail(e) {
+    e.preventDefault();
+    const email = 'aim2024@kookmin.ac.kr';
+    navigator.clipboard.writeText(email).then(() => {
+        const label = document.getElementById('email-copy-label');
+        label.textContent = '복사됨!';
+        setTimeout(() => { label.textContent = '문의하기'; }, 2000);
+    });
+}
+
 // Preload next slide images (if any)
 function preloadNextSlide() {
     if (currentSlide < totalSlides) {

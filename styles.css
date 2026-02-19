@@ -1503,6 +1503,126 @@ body {
     animation-delay: 0.3s;
 }
 
+/* ── 지원 안내 (Slide 12) ── */
+.apply-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    flex: 1;
+    min-height: 0;
+    align-items: start;
+}
+
+.apply-period {
+    margin-bottom: 1.6rem;
+}
+.apply-period-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.4);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.apply-period-range {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+.period-date {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--black);
+}
+.period-date em {
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(0,0,0,0.45);
+    margin-left: 0.2rem;
+}
+.period-sep {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.apply-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.4rem;
+}
+.apply-step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+.step-num {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 900;
+    background: var(--accent);
+    color: var(--black);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.apply-step strong {
+    font-size: 1rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.no-interview-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    background: var(--accent-dim);
+    border: 1px solid var(--accent);
+    color: rgba(0,0,0,0.6);
+    padding: 1px 8px;
+    border-radius: 100px;
+    letter-spacing: 0.02em;
+}
+.apply-step .sub {
+    font-size: 0.82rem;
+    color: rgba(0,0,0,0.5);
+    line-height: 1.6;
+    margin-top: 2px;
+}
+
+.apply-notice {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(0,0,0,0.45);
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 0.9rem;
+}
+.notice-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.apply-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
 /* ── 친목 활동 highlight 간격 축소 ── */
 .roadmap-item.highlight {
     padding: 0.8rem 1.5rem;
