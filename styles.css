@@ -1376,103 +1376,275 @@ body {
     margin-top: 2rem;
 }
 
-/* Responsive */
-@media (max-width: 1200px) {
-    .mega-title {
-        font-size: 6rem;
-    }
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
 
-    .slide-title {
-        font-size: 3rem;
-    }
-
-    .hero-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .rotating-text {
-        display: none;
-    }
-
-    .three-col,
-    .split-view,
-    .roadmap-layout,
-    .benefits-layout,
-    .conference-layout,
-    .internal-layout,
-    .external-layout,
-    .research-grid,
-    .android-projects {
-        grid-template-columns: 1fr;
-    }
-
-    .join-title {
-        font-size: 3.5rem;
-    }
-
-    .fee-tag {
-        position: static;
-        transform: rotate(0);
-        margin-top: 1rem;
-    }
-
-    .cta-secondary-grid {
-        grid-template-columns: 1fr;
-    }
+/* dvh support: mobile 주소창 제외 실제 뷰포트 */
+@supports (height: 100dvh) {
+    .slides-container,
+    .slide { height: 100dvh; }
 }
 
+/* ── Tablet Landscape ≤1200px ── */
+@media (max-width: 1200px) {
+    .slide-content { padding: 3rem 4rem; }
+
+    .mega-title { font-size: 6rem; }
+    .slide-title { font-size: 3rem; }
+
+    .hero-grid { grid-template-columns: 1.5fr 1fr; gap: 2rem; }
+
+    .research-grid { grid-template-columns: repeat(2, 1fr); }
+    .android-projects { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .benefits-layout { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+
+    .join-title { font-size: 3.5rem; }
+    .fee-tag { position: static; transform: rotate(0); margin-top: 1rem; }
+    .rotating-text { display: none; }
+}
+
+/* ── Tablet Portrait ≤900px ── */
+@media (max-width: 900px) {
+    .slide-content { padding: 2.5rem 2.5rem; }
+
+    .slide-nav { right: 1.5rem; top: 1.5rem; gap: 1rem; }
+    .current-slide { font-size: 2rem; }
+
+    .mega-title { font-size: 4.5rem; }
+    .slide-title { font-size: 2.5rem; }
+    .statement-title { font-size: 3.5rem; }
+
+    /* Hero: 로고 이미지 숨김 */
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+
+    /* 2-col 레이아웃 붕괴 + 장식 이미지 스택 숨김 */
+    .conference-layout { grid-template-columns: 1fr; }
+    .conference-right { display: none; }
+
+    .internal-layout { grid-template-columns: 1fr; }
+    .internal-right { display: none; }
+
+    .external-layout { grid-template-columns: 1fr; }
+    .external-right { display: none; }
+
+    .apply-layout { grid-template-columns: 1fr; gap: 2rem; }
+
+    .android-projects { grid-template-columns: repeat(2, 1fr); }
+    .android-img { height: 130px; }
+
+    .benefits-layout { grid-template-columns: repeat(3, 1fr); }
+
+    .closing-line { font-size: 2.8rem; }
+    .closing-description { font-size: 1.1rem; }
+    .closing-year { font-size: 1.6rem; }
+}
+
+/* ── Mobile ≤768px ── */
 @media (max-width: 768px) {
     .slide-content {
-        padding: 2rem;
+        padding: 1.5rem;
+        padding-top: 4.5rem; /* 네비 공간 확보 */
+        justify-content: flex-start;
     }
 
-    .mega-title {
-        font-size: 4rem;
-    }
-
-    .slide-title {
-        font-size: 2rem;
-    }
-
-    .statement-title {
-        font-size: 3rem;
-    }
-
-    .closing-line {
-        font-size: 2.5rem;
-    }
-
+    /* 네비: 가로 배치로 전환 */
     .slide-nav {
-        right: 1.5rem;
+        right: 1rem;
+        top: 0.6rem;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.8rem;
+        min-width: unset;
     }
+    .current-slide { font-size: 1.3rem; }
+    .nav-hint { display: none; }
+    .slide-dots { flex-direction: row; gap: 0.35rem; }
+    .slide-dot { width: 5px; height: 5px; }
+    .slide-dot.active { width: 8px; height: 8px; }
 
-    .join-title {
-        font-size: 2.5rem;
-    }
+    /* 타이포 */
+    .mega-title { font-size: 3rem; margin-bottom: 1.2rem; }
+    .slide-title { font-size: 1.8rem; }
+    .statement-title { font-size: 2.2rem; }
+    .intro-tag { font-size: 1.5rem; }
+    .section-header { margin-bottom: 1rem; }
+    .slide-number { font-size: 0.85rem; }
 
-    .cta-hero {
-        flex-direction: column;
-        padding: 2rem;
-        gap: 1.5rem;
-    }
+    /* Hero */
+    .hero-meta h2 { font-size: 2.2rem; }
+    .hero-meta { gap: 0.8rem; flex-wrap: wrap; }
+    .badge { font-size: 0.72rem; padding: 0.4rem 0.8rem; }
 
-    .cta-hero-content {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
+    /* Two Track: 2-col 유지, 사이즈 축소 */
+    .split-view {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+        max-height: calc(100vh - 9rem);
+        overflow: hidden;
     }
+    .track-column { padding: 0.7rem; }
+    .track-label h3 { font-size: 1.6rem; }
+    .track-desc { font-size: 0.8rem; margin-bottom: 0.6rem; }
+    .list-item { padding: 0.3rem 0; }
+    .list-item strong { font-size: 0.9rem; }
+    .list-item span { font-size: 0.72rem; }
+    .project-mini { padding: 0.4rem 0.6rem; }
+    .project-mini strong { font-size: 0.8rem; }
+    .project-mini span { font-size: 0.7rem; }
+    .track-note { padding: 0.4rem 0.6rem; }
+    .track-note p { font-size: 0.76rem; }
 
-    .cta-hero-label {
-        font-size: 1.8rem;
-    }
+    /* Android */
+    .android-projects { grid-template-columns: 1fr; gap: 0.8rem; }
+    .android-img { height: 100px; }
+    .android-intro h3 { font-size: 1.4rem; }
+    .android-project { padding: 0.8rem; }
+    .project-header h4 { font-size: 1.1rem; }
+    .project-icon { font-size: 1.8rem; }
+    .android-project li { font-size: 0.82rem; }
 
-    .cta-hero-arrow {
-        transform: rotate(90deg);
-    }
+    /* 학술연구부 */
+    .research-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+    .research-track { padding: 0.8rem; }
+    .track-header { margin-bottom: 0.8rem; padding-bottom: 0.6rem; }
+    .track-header h3 { font-size: 1.2rem; }
+    .paper-list li { font-size: 0.82rem; padding: 0.3rem 0 0.3rem 1rem; }
 
-    .cta-hero:hover .cta-hero-arrow {
-        transform: rotate(90deg) translateX(10px);
-    }
+    /* Benefits */
+    .benefits-layout { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+    .benefit { padding: 0.8rem 0.6rem; }
+    .benefit h4 { font-size: 0.82rem; }
+    .benefit p { font-size: 0.75rem; }
+    .benefit .price { font-size: 1rem; }
+    .benefit .sub-note { font-size: 0.68rem; }
+
+    /* 비교 */
+    .comparison-grid { max-height: none; overflow: visible; gap: 0.4rem; margin-bottom: 1rem; }
+    .comp-row { grid-template-columns: 65px 1fr; gap: 0.6rem; font-size: 0.88rem; padding: 0.6rem 0; }
+    .comp-row .old { display: none; }
+    .comp-row .new::before { content: '→ '; font-weight: 700; }
+    .conclusion { font-size: 1.4rem; }
+
+    /* 빙고 */
+    .bingo-intro { margin-bottom: 6px; }
+    .bingo-rule { font-size: 0.65rem; }
+    .bingo-col-labels span { font-size: 0.9rem; }
+    .bingo-grid-ot { gap: 5px; }
+    .bc { padding: 6px 7px; border-radius: 7px; gap: 2px; }
+    .bc-emoji { font-size: 0.9rem; }
+    .bc-name { font-size: 0.58rem; }
+    .bc-cat { font-size: 0.48rem; }
+    .bc-badge { font-size: 0.46rem; top: 4px; right: 4px; padding: 1px 3px; }
+
+    /* Level Up */
+    .big-statement { margin-bottom: 2rem; }
+    .upgrade-grid { gap: 1.5rem; }
+    .upgrade .icon { font-size: 2.5rem; }
+    .upgrade p { font-size: 0.95rem; }
+    .arrow-down-big { font-size: 3rem; margin: 1rem 0; }
+
+    /* 지원 */
+    .apply-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+    .period-date { font-size: 1.6rem; }
+    .apply-steps { gap: 0.8rem; }
+
+    /* CTA */
+    .cta-hero { flex-direction: column; padding: 1.5rem; gap: 1rem; }
+    .cta-hero-content { flex-direction: column; gap: 0.8rem; text-align: center; }
+    .cta-hero-label { font-size: 1.8rem; }
+    .cta-hero-icon { font-size: 2.5rem; }
+    .cta-hero-arrow { transform: rotate(90deg); font-size: 2rem; }
+    .cta-hero:hover .cta-hero-arrow { transform: rotate(90deg) translateX(10px); }
+    .cta-secondary-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    .cta-card { padding: 1.5rem 1rem; }
+    .cta-card-icon { font-size: 2rem; }
+    .cta-card-label { font-size: 1rem; }
+
+    /* 클로징 */
+    .closing-line { font-size: 2rem; }
+    .closing-description { font-size: 0.95rem; margin: 1.2rem 0; }
+    .closing-year { font-size: 1.3rem; margin-top: 1.2rem; }
+    .closing-statement { padding: 1.5rem; }
+}
+
+/* ── Small Mobile ≤480px ── */
+@media (max-width: 480px) {
+    .slide-content { padding: 1.2rem 0.9rem; padding-top: 3.8rem; }
+
+    .mega-title { font-size: 2.4rem; }
+    .slide-title { font-size: 1.5rem; }
+    .statement-title { font-size: 1.8rem; }
+    .intro-tag { font-size: 1.2rem; }
+    .hero-meta h2 { font-size: 1.8rem; }
+    .badge { font-size: 0.65rem; padding: 0.3rem 0.6rem; }
+
+    /* Two Track */
+    .split-view { gap: 0.6rem; max-height: calc(100vh - 8rem); }
+    .track-column { padding: 0.5rem; }
+    .track-label h3 { font-size: 1.3rem; }
+    .track-desc { font-size: 0.72rem; margin-bottom: 0.5rem; }
+    .list-item strong { font-size: 0.8rem; }
+    .list-item span { font-size: 0.65rem; }
+    .project-mini strong { font-size: 0.72rem; }
+    .project-mini span { font-size: 0.62rem; }
+
+    /* Research: 소형 모바일에서 1-col */
+    .research-grid { grid-template-columns: 1fr; gap: 0.6rem; }
+    .research-track { padding: 0.7rem; }
+    .track-header h3 { font-size: 1.1rem; }
+
+    /* Android */
+    .android-intro h3 { font-size: 1.2rem; }
+    .android-project { padding: 0.6rem; }
+    .android-img { height: 90px; }
+    .project-header h4 { font-size: 1rem; }
+
+    /* Benefits */
+    .benefits-layout { gap: 0.5rem; }
+    .benefit { padding: 0.65rem 0.4rem; }
+    .benefit h4 { font-size: 0.72rem; }
+    .benefit p { font-size: 0.68rem; }
+    .benefit .price { font-size: 0.88rem; }
+
+    /* 비교 */
+    .comp-row { font-size: 0.8rem; grid-template-columns: 58px 1fr; padding: 0.5rem 0; }
+    .conclusion { font-size: 1.2rem; }
+
+    /* 빙고 */
+    .bingo-col-labels span { font-size: 0.75rem; }
+    .bingo-grid-ot { gap: 3px; }
+    .bc { padding: 4px 5px; border-radius: 6px; gap: 1px; }
+    .bc-emoji { font-size: 0.75rem; }
+    .bc-name { font-size: 0.5rem; }
+    .bc-cat { font-size: 0.42rem; }
+    .bc-badge { font-size: 0.4rem; top: 3px; right: 3px; padding: 1px 3px; }
+
+    /* Level Up */
+    .upgrade .icon { font-size: 2rem; }
+    .upgrade p { font-size: 0.82rem; }
+    .arrow-down-big { font-size: 2.5rem; }
+
+    /* 지원 */
+    .apply-period-range { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+    .period-date { font-size: 1.3rem; }
+    .period-sep { display: none; }
+    .apply-steps { gap: 0.6rem; }
+
+    /* CTA */
+    .cta-hero { padding: 1rem; }
+    .cta-hero-label { font-size: 1.5rem; }
+    .cta-hero-icon { font-size: 2rem; }
+    .cta-card { padding: 1rem 0.7rem; }
+    .cta-card-icon { font-size: 1.7rem; }
+    .cta-card-label { font-size: 0.85rem; }
+
+    /* 클로징 */
+    .closing-line { font-size: 1.4rem; }
+    .closing-description { font-size: 0.82rem; }
+    .closing-year { font-size: 1rem; }
+    .closing-statement { padding: 1rem; }
 }
 
 /* Animations */
